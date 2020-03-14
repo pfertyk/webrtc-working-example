@@ -1,14 +1,12 @@
 // Config variables: change them to point to your own servers
 const SIGNALING_SERVER_URL = 'http://localhost:9999';
-const TURN_SERVER_URL = 'http://localhost:3478';
+const TURN_SERVER_URL = 'localhost:3478';
 const TURN_SERVER_USERNAME = 'username';
 const TURN_SERVER_CREDENTIAL = 'credential';
 // WebRTC config: you don't have to change this for the example to work
+// If you are testing on localhost, you can just use PC_CONFIG = {}
 const PC_CONFIG = {
   iceServers: [
-    {
-      urls: 'stun:stun.l.google.com:19302'
-    },
     {
       urls: 'turn:' + TURN_SERVER_URL + '?transport=tcp',
       username: TURN_SERVER_USERNAME,
