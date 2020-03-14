@@ -23,7 +23,7 @@ const PC_CONFIG = {
 };
 
 // Signaling methods
-let socket = io(SIGNALING_SERVER_URL);
+let socket = io(SIGNALING_SERVER_URL, { autoConnect: false });
 
 socket.on('data', (data) => {
   console.log('Data received: ',data);
@@ -48,7 +48,7 @@ let remoteStreamElement = document.querySelector('#remoteStream');
 
 let getLocalStream = () => {
   navigator.mediaDevices.getUserMedia({ audio: true, video: true })
-    .then(stream => {
+    .then((stream) => {
       console.log('Stream found');
       localStream = stream;
       // Connect after making sure that local stream is availble
