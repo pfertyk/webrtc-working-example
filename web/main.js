@@ -85,10 +85,10 @@ let sendAnswer = () => {
   );
 };
 
-let setAndSendLocalDescription = (localDescription) => {
-  pc.setLocalDescription(localDescription);
+let setAndSendLocalDescription = (sessionDescription) => {
+  pc.setLocalDescription(sessionDescription);
   console.log('Local description set');
-  sendData(localDescription);
+  sendData(sessionDescription);
 };
 
 let onIceCandidate = (event) => {
