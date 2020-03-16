@@ -4,6 +4,8 @@ This is a simple working example of WebRTC technology, without unnecessary
 3rd party dependencies. It allows 2 web browsers to exchange audio and video
 streams. Tested on Mozilla Firefox 74.
 
+Full description of how this example works can be found in [this blog post](http://pfertyk.me/2020/03/webrtc-a-working-example/).
+
 ## Dependencies
 
 The signaling server uses Python3 with `aiohttp` and `python-socketio` modules.
