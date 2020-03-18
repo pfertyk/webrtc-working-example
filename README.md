@@ -37,7 +37,7 @@ like this:
 
 ```
 sudo apt install coturn
-turnserver -a -o -v -n --no-dtls --no-tls -u username:credential
+turnserver -a -o -v -n --no-dtls --no-tls -u username:credential -r realmName
 ```
 
 This will start a TURN server at `{YOUR_SERVER_IP}:3478`.
