@@ -42,6 +42,16 @@ turnserver -a -o -v -n --no-dtls --no-tls -u username:credential -r realmName
 
 This will start a TURN server at `{YOUR_SERVER_IP}:3478`.
 
+To check if your TURN server setup is correct, you can use
+[this validator](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/).
+To test the example above you should input the following values:
+* **STUN or TURN URI**: `turn:{YOUR_SERVER_IP}:3478`
+* **TURN username**: `test`
+* **TURN password**: `test`
+                                                                                 
+Click "Add Server", remove other servers, and select "Gather candidates".
+If you get a component of type `relay`, that means your setup is working.
+
 ### Web application
 
 You just need to host the files from `web` directory. Any HTTP server will do,
