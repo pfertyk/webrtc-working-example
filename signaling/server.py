@@ -3,7 +3,7 @@ import socketio
 
 ROOM = 'room'
 
-sio = socketio.AsyncServer(cors_allowed_origins='*')
+sio = socketio.AsyncServer(cors_allowed_origins='*', ping_timeout=35)
 app = web.Application()
 sio.attach(app)
 
