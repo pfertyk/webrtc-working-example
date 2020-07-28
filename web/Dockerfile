@@ -18,4 +18,5 @@ RUN apt-get update && \
 
 EXPOSE 7000
 
+WORKDIR /web/
 CMD python3 -m http.server 7000 & sleep infinity

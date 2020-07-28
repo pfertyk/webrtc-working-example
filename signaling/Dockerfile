@@ -22,5 +22,3 @@ RUN pip3 install -r /signaling/requirements.txt
 EXPOSE 9999
 
 CMD python3 /signaling/server.py & sleep infinity
-
-

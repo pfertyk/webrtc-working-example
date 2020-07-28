@@ -7,10 +7,11 @@ services:
     container_name: turn-server
     image: turn
     ports:
-      - "3478:3478"
+      - "3478:3478/tcp"
+      - "3478:3478/udp"
     networks:
       - webrtc
-    
+
   signaling-server:
     build: ./signaling/
     container_name: signaling-server
@@ -19,8 +20,8 @@ services:
       - "9999:9999"
     networks:
       - webrtc
-      
-  
+
+
   web:
     build: ./web/
     container_name: web
