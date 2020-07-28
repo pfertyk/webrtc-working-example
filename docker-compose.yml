@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+
+  turn-server:
+    build: ./turn/
+    container_name: turn-server
+    image: turn
+    ports:
+      - "3478:3478"
+    networks:
+      - webrtc
+    
+  signaling-server:
+    build: ./signaling/
+    container_name: signaling-server
+    image: signaling
+    ports:
+      - "9999:9999"
+    networks:
+      - webrtc
+      
+  
+  web:
+    build: ./web/
+    container_name: web
+    image: web
+    ports:
+      - "7000:7000"
+    networks:
+      - webrtc
+
+networks:
+    webrtc:
