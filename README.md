@@ -29,11 +29,12 @@ should not be difficult.
 
 ### Docker Compose
 
-You can easily start the signaling server, the TURN server, and the
-web application (all described below) with a single command:
+Thanks to [grebtsew](https://github.com/grebtsew), starting the signaling
+server, the TURN server, and the web application (all described below)
+can be easily done with a single command:
 
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 This setup should also work on public servers.
