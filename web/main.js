@@ -61,7 +61,7 @@ let createPeerConnection = () => {
   try {
     pc = new RTCPeerConnection(PC_CONFIG);
     pc.onicecandidate = onIceCandidate;
-    pc.onaddstream = onAddStream;
+    pc.ontrack = onTrack;
     pc.addStream(localStream);
     console.log('PeerConnection created');
   } catch (error) {
@@ -101,9 +101,9 @@ let onIceCandidate = (event) => {
   }
 };
 
-let onAddStream = (event) => {
-  console.log('Add stream');
-  remoteStreamElement.srcObject = event.stream;
+let onTrack = (event) => {
+  console.log('Add track');
+  remoteStreamElement.srcObject = event.streams[0];
 };
 
 let handleSignalingData = (data) => {
