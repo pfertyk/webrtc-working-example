@@ -84,6 +84,8 @@ export default class WebRTC {
     try {
       this.pc = new RTCPeerConnection(PC_CONFIG);
       this.pc.onicecandidate = this.onIceCandidate;
+      // In web version, this was replaced by ontrack.
+      // However, react-native-webrtc doesn't support it yet
       this.pc.onaddstream = this.onAddStream;
       this.pc.addStream(this.localStream);
       console.log('PeerConnection created');
