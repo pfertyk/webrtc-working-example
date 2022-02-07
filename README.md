@@ -14,7 +14,7 @@ Full description of how this example works can be found in
 
 The signaling server uses Python3 with `aiohttp` and `python-socketio` modules.
 
-The web application uses `socket.io-client` version 2.2.0, released under MIT
+The web application uses `socket.io-client` version 4.2.0, released under MIT
 license, which can be downloaded from
 [here](https://github.com/socketio/socket.io-client/releases). The script is
 added to this repository, so you don't have to download it separately or
@@ -88,7 +88,8 @@ Then you can access the application in your browser: `localhost:7000`.
 ### Mobile application
 
 You need to setup React Native on your machine by following
-[these instructions](https://reactnative.dev/docs/environment-setup). WebRTC
+[these instructions](https://reactnative.dev/docs/environment-setup). Take note
+of your Android SDK location, you will need it later. WebRTC
 doesn't work with Expo or emulators, so you will have to run it on a physical
 phone. Connect the phone to the computer and enable USB debugging.
 Edit `mobile/src/webrtc-utils.js` file to point to an actual signaling server
@@ -104,6 +105,7 @@ npx react-native start
 In a new terminal session (also in the `mobile` directory) run:
 
 ```
+export ANDROID_SDK_ROOT=/path/to/your/Android/Sdk
 npx react-native run-android
 ```
 
