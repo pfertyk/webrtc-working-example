@@ -43,12 +43,14 @@ let sendData = (data) => {
 let pc;
 let localStream;
 let remoteStreamElement = document.querySelector('#remoteStream');
+let localStreamElement = document.querySelector('#localStream');
 
 let getLocalStream = () => {
   navigator.mediaDevices.getUserMedia({ audio: true, video: true })
     .then((stream) => {
       console.log('Stream found');
       localStream = stream;
+      localStreamElement.srcObject = localStream;
       // Connect after making sure that local stream is availble
       socket.connect();
     })

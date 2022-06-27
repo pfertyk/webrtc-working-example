@@ -1,0 +1,19 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+#remoteStream {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#localStream {
+  width: 25vh;
+  height: 25vh;
+  margin: 1em;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
