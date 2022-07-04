@@ -35,6 +35,10 @@ export default class WebRTC {
   localStream;
 
   constructor() {
+    this.getLocalStream();
+  }
+
+  connect = () => {
     this.socket = socketIO(SIGNALING_SERVER_URL, {
       autoConnect: false,
       jsonp: false,
@@ -43,10 +47,7 @@ export default class WebRTC {
     // Signaling callbacks
     this.socket.on('data', this.onData);
     this.socket.on('ready', this.onReady);
-  }
-
-  connect = () => {
-    this.getLocalStream();
+    this.socket.connect();
   }
 
   // Signaling methods
@@ -73,8 +74,8 @@ export default class WebRTC {
     }).then((stream) => {
       console.log('Stream found');
       this.localStream = stream;
+      this.onLocalStreamObtained(stream);
       // Connect after making sure that local stream is availble
-      this.socket.connect();
     }).catch(error => {
       console.error('Stream not found: ', error);
     });
