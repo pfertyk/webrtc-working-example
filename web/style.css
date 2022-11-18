@@ -17,3 +17,16 @@ body, html {
   right: 0;
   position: absolute;
 }
+
+#toggleMic {
+  width: 4vh;
+  height: 4vh;
+  margin: 1em;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+
+#toggleMic.muted {
+  color: red;
+}

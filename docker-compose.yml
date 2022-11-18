@@ -21,13 +21,14 @@ services:
     networks:
       - webrtc
 
-
   web:
     build: ./web/
     container_name: web
     image: web
     ports:
       - "7000:7000"
+    volumes:
+      - ./web:/web
     networks:
       - webrtc
 

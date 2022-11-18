@@ -50,6 +50,8 @@ let getLocalStream = () => {
     .then((stream) => {
       console.log('Stream found');
       localStream = stream;
+      // Disable the microphone by default
+      stream.getAudioTracks()[0].enabled = false;
       localStreamElement.srcObject = localStream;
       // Connect after making sure that local stream is availble
       socket.connect();
@@ -122,6 +124,13 @@ let handleSignalingData = (data) => {
       pc.addIceCandidate(new RTCIceCandidate(data.candidate));
       break;
   }
+};
+
+let toggleMic = () => {
+  let track = localStream.getAudioTracks()[0];
+  track.enabled = !track.enabled;
+  let micClass = track.enabled ? "unmuted" : "muted";
+  document.getElementById("toggleMic").className = micClass;
 };
 
 // Start connection
